@@ -73,5 +73,12 @@ class Schema
             $table->string('log_description');
             $table->timestamps();
         });
+
+        $this->schema->create('sessions', function ($table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('active');
+            $table->timestamps();
+        });
     }
 }

@@ -9,7 +9,7 @@ class DatabaseSeeder
 {
     public function run()
     {
-        //(new UserSeeder())->run();
+        (new UserSeeder())->run();
         (new MakeSeeder())->run();
     }
 }
