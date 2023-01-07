@@ -1,15 +1,20 @@
 <?php
 namespace App\Utils\Migrations;
 
+use App\Repositories\MakeRepository;
 use App\Utils\Configuration\DbConfig;
+use Illuminate\Support\Facades\DB;
 
 class Schema
 {
+    private $db;
     private $schema;
 
     public function __construct()
     {
-        $this->schema = (new DbConfig())->connect()->schema();
+        $dbConfig = (new DbConfig())->connect();
+        $this->schema = $dbConfig->schema();
+        $this->db = $dbConfig->db();
     }
 
     public function create()
@@ -80,5 +85,7 @@ class Schema
             $table->string('active');
             $table->timestamps();
         });
+
+        $this->db::statement((new MakeRepository)->createView());
     }
 }

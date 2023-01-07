@@ -38,4 +38,9 @@ class DbConfig
     {
         return $this->capsule::schema();
     }
+
+    public function db()
+    {
+        return $this->capsule;
+    }
 }
