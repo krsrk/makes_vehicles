@@ -20,8 +20,8 @@ class Mailer
         $this->mailer->Host = env_var('MAIL_HOST');
         $this->mailer->SMTPAuth = true;
         $this->mailer->Port = env_var('MAIL_PORT');
-        $this->mailer->Username = env_var('MAIL_USER');
-        $this->mailer->Password = env_var('MAIL_USER');
+        $this->mailer->Username = env_var('MAIL_USERNAME');
+        $this->mailer->Password = env_var('MAIL_PASSWORD');
     }
 
     public function setHeaders(string $email) : Mailer
