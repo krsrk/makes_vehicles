@@ -9,6 +9,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Minicli\App;
 use Minicli\Exception\CommandNotFoundException;
+use App\Utils\Configuration\Env;
+
+(new Env(__DIR__))->load();
 
 $app = new App([
     'app_path' => [

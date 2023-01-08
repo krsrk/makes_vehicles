@@ -14,3 +14,17 @@ if (! function_exists('env_var')) {
         return $envVarValue;
     }
 }
+
+if (! function_exists('base_dir')) {
+    function base_dir() : string
+    {
+        return env_var('BASE_DIR', '/var/app/');
+    }
+}
+
+if (! function_exists('app_dir')) {
+    function app_dir() : string
+    {
+        return env_var('BASE_DIR', '/var/app/') . 'app/';
+    }
+}

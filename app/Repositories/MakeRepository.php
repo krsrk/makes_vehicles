@@ -2,8 +2,17 @@
 
 namespace App\Repositories;
 
+use App\Utils\Configuration\DbConfig;
+
 class MakeRepository
 {
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = (new DbConfig)->connect()->db();
+    }
+
     public function createView() : string
     {
         return <<<SQL
@@ -14,5 +23,10 @@ class MakeRepository
             INNER JOIN vehicle_types vt on vt.id = mmvt.vehicle_type_id
             INNER JOIN models mo on mo.id = mmvt.model_id;
             SQL;
+    }
+
+    public function getReport()
+    {
+        return $this->db::table('make_model_report')->get();
     }
 }

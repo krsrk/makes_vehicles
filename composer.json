@@ -21,7 +21,8 @@
     "anourvalar/office": "^2.3",
     "phpoffice/phpspreadsheet": "^1.25",
     "aws/aws-sdk-php": "^3.255",
-    "guzzlehttp/guzzle": "^7.0"
+    "guzzlehttp/guzzle": "^7.0",
+    "phpmailer/phpmailer": "^6.7"
   },
   "require-dev": {
     "pestphp/pest": "^1.21"

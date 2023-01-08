@@ -3,7 +3,6 @@ namespace App\Utils\Migrations;
 
 use App\Repositories\MakeRepository;
 use App\Utils\Configuration\DbConfig;
-use Illuminate\Support\Facades\DB;
 
 class Schema
 {
