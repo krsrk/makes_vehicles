@@ -17,16 +17,16 @@ class Mailer
     private function _setMailer() : void
     {
         $this->mailer->isSMTP();
-        $this->mailer->Host = 'smtp.mailtrap.io';
+        $this->mailer->Host = env_var('MAIL_HOST');
         $this->mailer->SMTPAuth = true;
-        $this->mailer->Port = 2525;
-        $this->mailer->Username = '9d7b4d69f58518';
-        $this->mailer->Password = '93626fdf6c7556';
+        $this->mailer->Port = env_var('MAIL_PORT');
+        $this->mailer->Username = env_var('MAIL_USER');
+        $this->mailer->Password = env_var('MAIL_USER');
     }
 
     public function setHeaders(string $email) : Mailer
     {
-        $this->mailer->setFrom('info@mailtrap.io', 'Mailtrap');
+        $this->mailer->setFrom(env_var('MAIL_SENDER'), env_var('MAIL_SENDER_NAME'));
         $this->mailer->Subject = 'Test Report';
         $this->mailer->addAddress($email, 'Test');
 
